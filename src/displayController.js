@@ -1,12 +1,13 @@
 import { Class } from "./pages/classes";
 import { inboxDisplay } from "./pages/inbox";
-
+import { indexList } from "./pages/inbox";
 //This module contains all information for transforming the DOM
 const app = document.querySelector("#app");
-const inbox = document.querySelector(".inbox");
+const inbox = document.querySelector(".inbox-h1");
 const content = document.querySelector(".content");
 const inboxContainer = document.createElement("div");
 inboxContainer.className = "inbox-container";
+const navClasses = document.querySelector(".classes-h1");
 
 //Modals
 //Add Class Modal
@@ -34,6 +35,7 @@ const displayClassModal = function (button, modal, x) {
 };
 //This function creates a new class, pushes it to classList, and displays the array
 //ISSUES - adds empty array items
+//Is SUPER bloated - REFACTOR LATER
 const submitNewClass = function (classList) {
   classSubmitBtn.addEventListener("click", function () {
     const newClass = new Class(classNameInput.value, textbookNameInput.value);
@@ -41,6 +43,7 @@ const submitNewClass = function (classList) {
     console.log(classList);
     classNameInput.value = "";
     textbookNameInput.value = "";
+    console.log(indexList);
     if (!inboxContainer.hasChildNodes()) {
       inboxDisplay();
     } else {
@@ -54,6 +57,10 @@ const submitNewClass = function (classList) {
   });
 };
 
+const removeFromDOM = function (element, parent) {
+  parent.remove(element);
+};
+
 export {
   app,
   inbox,
@@ -65,6 +72,7 @@ export {
   classNameInput,
   textbookNameInput,
   inboxContainer,
+  navClasses,
   displayClassModal,
   submitNewClass,
 };

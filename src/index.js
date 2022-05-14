@@ -11,6 +11,7 @@ import {
   classNameInput,
   textbookNameInput,
   inboxContainer,
+  navClasses,
   displayClassModal,
   submitNewClass,
 } from "./displayController";
@@ -24,7 +25,9 @@ import {
   attendanceDisplay,
 } from "./pages/Attendance";
 import { Class, textbook, classList } from "./pages/classes";
-import { inboxDisplay, init } from "./pages/inbox";
+import { editText, inboxDisplay, init } from "./pages/inbox";
 init();
 displayClassModal(newClassButton, newClassModal, exitButton1);
 submitNewClass(classList);
+editText(inbox);
+editText(navClasses);

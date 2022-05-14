@@ -20,8 +20,8 @@ class textbook {
   }
 }
 
-const newClassForm = function () {
-  document.createElement;
+const createNewClassFromForm = function (name, textbook) {
+  new Class(name.value, textbook.value);
 };
 
-export { Class, textbook, classList };
+export { Class, textbook, classList, createNewClassFromForm };

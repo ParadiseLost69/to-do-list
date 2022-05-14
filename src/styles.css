@@ -134,6 +134,7 @@ li {
 .exit-button {
   margin: 5px;
 }
+/* Class card */
 
 .class-card {
   border-radius: 15px;
@@ -142,7 +143,7 @@ li {
   width: fit-content;
   max-width: 20vw;
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 0.5fr 1fr 2fr;
   justify-content: flex-start;
 }
 
@@ -157,7 +158,11 @@ li {
   text-align: start;
 }
 
-.class-name {
+.card-x-button {
+  margin: 5px;
+}
+.card-x-button:hover {
+  cursor: pointer;
 }
 
 .textbook-title-name {
@@ -171,4 +176,8 @@ li {
   margin-bottom: 10px;
   height: fit-content;
   padding: 10px;
+}
+
+.disappear {
+  display: none;
 }
