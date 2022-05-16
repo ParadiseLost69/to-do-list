@@ -6,8 +6,6 @@ import {
   inboxTitle,
   submitNewClass,
 } from "../displayController";
-import { ModuleGraph } from "webpack";
-import { create } from "lodash";
 
 const inboxInit = function () {
   content.appendChild(inboxContainer);
@@ -27,8 +25,7 @@ const inboxDisplay = function () {
     const newCard = document.createElement("div");
     newCard.className = `class-card ${i}`;
     //X BUTTON
-    const xButton = document.createElement("p");
-    xButton.className = "card-x-button";
+    const xButton = createNewElementWithName("p", "card-x-button");
     xButton.textContent = "X";
     xButton.addEventListener("click", function () {
       this.parentElement.className = "disappear";
@@ -36,8 +33,10 @@ const inboxDisplay = function () {
     });
     newCard.appendChild(xButton);
     //NAME
-    const className = document.createElement("h2");
-    className.className = `class-name class-title-name`;
+    const className = createNewElementWithName(
+      "h2",
+      "class-name class-title-name"
+    );
     className.textContent = value.name;
     editText(className);
     newCard.appendChild(className);
@@ -73,6 +72,7 @@ const editText = function (item) {
     cancelButton.textContent = "cancel";
 
     item.replaceWith(editBox);
+    console.log(item);
 
     //add the buttons
 

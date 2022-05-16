@@ -1,38 +1,38 @@
-const webpack = require('webpack');
-const path = require('path');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
-
+const webpack = require("webpack");
+const path = require("path");
+const LodashModuleReplacementPlugin = require("lodash-webpack-plugin");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 const config = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
   },
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
-          'postcss-loader'
-        ]
+          "postcss-loader",
+        ],
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
+        use: "babel-loader",
+        exclude: /node_modules/,
+      },
+    ],
   },
-  plugins: [
-    new LodashModuleReplacementPlugin
-  ]
+  plugins: [new LodashModuleReplacementPlugin()],
+  plugins: [new NodePolyfillPlugin()],
+  resolve: { extensions: [".js", ".jsx"] },
 };
 
 module.exports = config;
