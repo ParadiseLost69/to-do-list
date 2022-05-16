@@ -4,6 +4,7 @@ import { indexList } from "./pages/inbox";
 //This module contains all information for transforming the DOM
 const app = document.querySelector("#app");
 const inbox = document.querySelector(".inbox-h1");
+const inboxTitle = document.querySelector(".inbox-title");
 const content = document.querySelector(".content");
 const inboxContainer = document.createElement("div");
 inboxContainer.className = "inbox-container";
@@ -19,10 +20,17 @@ const classSubmitBtn = document.querySelector(".class-submit");
 //Class Modal Values
 const classNameInput = document.querySelector(".class-name");
 const textbookNameInput = document.querySelector(".textbook-name");
+//This function creates a new element and adds a class name
+
+const createNewElementWithName = function (element, name) {
+  const newElement = document.createElement(`${element}`);
+  newElement.className = `${name}`;
+  return newElement;
+};
 
 const displayClassModal = function (button, modal, x) {
   button.addEventListener("click", function () {
-    modal.style.display = "block";
+    modal.style.display = "grid";
   });
   x.addEventListener("click", function () {
     modal.style.display = "none";
@@ -73,6 +81,8 @@ export {
   textbookNameInput,
   inboxContainer,
   navClasses,
+  inboxTitle,
   displayClassModal,
   submitNewClass,
+  createNewElementWithName,
 };
